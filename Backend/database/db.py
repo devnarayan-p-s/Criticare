@@ -4,6 +4,6 @@ def get_db():
     return mysql.connector.connect(
         host="localhost",
         user="root",
-        password="1623",
+        password="Od(GOki1",
         database="Criticare_db"
     )
