@@ -1,0 +1,305 @@
+/* GLOBAL RESET & FONTS */
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background-image: url('https://img.freepik.com/free-photo/blur-hospital_1203-7972.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #051e49;
+  min-height: 100vh;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, monospace;
+}
+
+/* MAIN LAYOUT */
+.App {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-image: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%);
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 60px 50px;
+  border-radius: 30px;
+  box-shadow: 
+    0 20px 50px rgba(172, 0, 0, 0.15), 
+    0 1px 3px rgba(13, 65, 108, 0.5) inset;
+  
+  max-width: 1000px; 
+  width: 90%;
+  
+  margin: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* TYPOGRAPHY */
+h1, h2, h3 {
+  color: #3a848e;
+  margin-bottom: 30px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 36px;
+  background: linear-gradient(135deg, #0dabc4a7 0%, #441ffd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 40px;
+  text-shadow: 0 2px 10px rgba(59, 130, 246, 0.1);
+}
+
+/* FORM ELEMENTS */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+input, select {
+  padding: 16px 20px;
+  border: 2px solid #e2e8f0;
+  border-radius: 16px;
+  font-size: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.9);
+  color: #1e293b;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #42e6ee;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+  transform: translateY(-2px);
+}
+
+input::placeholder {
+  color: #94a3b8;
+}
+
+/* BUTTONS */
+.btn, button {
+  background: linear-gradient(135deg, #3fdece 0%, #30dbf5 100%);
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.4);
+}
+
+.btn:hover, button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 30px -5px rgba(59, 130, 246, 0.5);
+  filter: brightness(1.1);
+}
+
+.btn:active, button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* BIG SMOOTH SQUARE HOME BUTTONS */
+.home-buttons {
+  display: flex;
+  flex-direction: row; 
+  flex-wrap: nowrap; 
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+  overflow-x: auto; 
+  padding-bottom: 30px; 
+  padding-top: 30px;
+}
+
+/* CRITICAL FIX: 
+   This targets any 'a' tag inside .home-buttons to force-remove underlines.
+*/
+.home-buttons a {
+  text-decoration: none !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.home-btn, 
+a.home-btn, 
+a.home-btn:visited,
+a.home-btn:hover,
+a.home-btn:active {
+  /* Dimensions & Shape */
+  width: 180px;
+  height: 180px;
+  min-width: 180px;
+  border-radius: 40px;
+  
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  
+  /* Visual Style */
+  background: white; /* Changed back to white for elegance */
+  color: #254242;
+  border: 2px solid #eff6ff;
+  
+  /* Text Styling */
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.4;
+  
+  /* Safety checks for underlines */
+  text-decoration: none !important;
+  border-bottom: none !important;
+  
+  /* Interactions */
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 
+    0 20px 40px -10px rgba(59, 130, 246, 0.15),
+    0 0 0 1px rgba(59, 130, 246, 0.05);
+  
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.home-btn:hover {
+  transform: translateY(-8px);
+  background: linear-gradient(135deg, #3abac6 0%, #03d3e6 100%);
+  color: white !important;
+  border-color: transparent;
+  box-shadow: 
+    0 25px 50px -12px rgba(30, 108, 125, 0.5);
+  
+  /* Ensure no underline appears on hover either */
+  text-decoration: none !important;
+}
+
+.home-btn:active {
+  transform: scale(0.95);
+}
+
+/* POPUP / MODAL */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(12, 50, 125, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: white;
+  padding: 50px;
+  border-radius: 30px;
+  box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  max-width: 420px;
+  width: 90%;
+  animation: slideUpFade 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.patient-id {
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  font-size: 24px;
+  color: #63e6d0;
+  background: #eff6ff;
+  padding: 15px 30px;
+  border-radius: 12px;
+  display: inline-block;
+  margin: 20px 0;
+  border: 2px dashed #bfdbfe;
+  letter-spacing: 2px;
+}
+
+/* RESOURCE GRID */
+.resources-section h3 {
+  color: #000000;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.resource-item {
+  padding: 20px 15px;
+  border-radius: 16px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgb(126, 125, 125);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.resource-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.available {
+  background: linear-gradient(135deg, #2b8530 0%, #248d37 100%);
+}
+
+.occupied {
+  background: linear-gradient(135deg, #ed3358 0%, #de0808 100%);
+}
