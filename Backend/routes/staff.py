@@ -11,7 +11,7 @@ def register_patient(data: PatientRegister):
 
     cursor.execute("""
         INSERT INTO patients
-        (name, age, gender, contact, address, doctor_name)
+        (name, age, gender, contact, address, dr_name)
         VALUES (%s, %s, %s, %s, %s, %s)
     """, (
         data.name,
@@ -19,7 +19,7 @@ def register_patient(data: PatientRegister):
         data.gender,
         data.contact,
         data.address,
-        data.doctor_name
+        data.dr_name
     ))
 
     db.commit()

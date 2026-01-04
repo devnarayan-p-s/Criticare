@@ -9,7 +9,7 @@ def get_patient(patient_id: int):
     db = get_db()
     cursor = db.cursor(dictionary=True)
 
-    cursor.execute("SELECT * FROM patients WHERE id = %s", (patient_id,))
+    cursor.execute("SELECT * FROM patients WHERE patient_id = %s", (patient_id,))
     patient = cursor.fetchone()
 
     cursor.close()
@@ -29,7 +29,7 @@ def update_medical_details(data: DoctorUpdate):
     cursor.execute("""
         UPDATE patients
         SET disease = %s, symptoms = %s, emergency = %s
-        WHERE id = %s
+        WHERE patient_id = %s
     """, (
         data.disease,
         data.symptoms,

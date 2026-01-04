@@ -6,7 +6,7 @@ class PatientRegister(BaseModel):
     gender: str
     contact: str
     address: str
-    doctor_name: str
+    dr_name: str
 
 class DoctorUpdate(BaseModel):
     patient_id: int
