@@ -16,10 +16,12 @@ router = APIRouter(
 # LOAD TRAINED ML MODEL
 # --------------------------------------------------
 
-MODEL_PATH = r"C:\Users\hp\projects\Criticare\Backend\ml\model\claim_risk.pkl"
+SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
+# model is located at <backend>/ml/model/claim_risk.pkl (use relative path so Linux works)
+MODEL_PATH = os.path.normpath(os.path.join(SCRIPT_DIR, "..", "ml", "model", "claim_risk.pkl"))
 
 if not os.path.exists(MODEL_PATH):
-    raise RuntimeError("ML model file not found")
+    raise RuntimeError(f"ML model file not found at {MODEL_PATH}")
 
 ml_model = joblib.load(MODEL_PATH)
 

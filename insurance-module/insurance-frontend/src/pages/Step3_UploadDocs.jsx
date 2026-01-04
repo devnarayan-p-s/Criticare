@@ -25,15 +25,8 @@ export default function Step3() {
 
       formData.append("document", file);
 
-      await api.post(
-        `/insurance/claim/${claim_id}/documents`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      // Let the browser set the Content-Type (including boundary)
+      await api.post(`/insurance/claim/${claim_id}/documents`, formData);
 
       alert("✅ Document uploaded & OCR completed");
       navigate("/risk");
