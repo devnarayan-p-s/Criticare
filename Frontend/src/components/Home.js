@@ -18,6 +18,9 @@ function Home() {
         <Link to="/resources">
           <button className="home-btn">View Resources</button>
         </Link>
+        <a href="http://localhost:5173" target="_blank" rel="noopener noreferrer">
+          <button className="home-btn">Insurance Claim</button>
+        </a>
       </div>
     </div>
   );
