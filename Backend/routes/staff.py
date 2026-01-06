@@ -13,7 +13,7 @@ def register_patient(data: PatientRegister):
     cursor.execute("""
         INSERT INTO patients
         (name, age, gender, contact, address, dr_name)
-        VALUES (%s, %s, %s, %s, %s, %s)
+        VALUES (?, ?, ?, ?, ?, ?)
     """, (
         data.name,
         data.age,
@@ -54,7 +54,7 @@ def discharge_patient(patient_id: int):
     # Update DB
     db = get_db()
     cursor = db.cursor()
-    cursor.execute("UPDATE patients SET discharged = 1 WHERE patient_id = %s", (patient_id,))
+    cursor.execute("UPDATE patients SET discharged = 1 WHERE patient_id = ?", (patient_id,))
     db.commit()
     cursor.close()
     db.close()

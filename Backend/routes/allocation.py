@@ -61,7 +61,7 @@ def allocate_icu(patient_id: int):
     cursor = db.cursor()
 
     cursor.execute(
-        "SELECT emergency FROM patients WHERE patient_id = %s",
+        "SELECT emergency FROM patients WHERE patient_id = ?",
     (patient_id,)
     )
     result = cursor.fetchone()

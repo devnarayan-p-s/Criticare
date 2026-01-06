@@ -8,18 +8,19 @@ router = APIRouter(prefix="/doctor", tags=["Doctor"])
 @router.get("/patient/{patient_id}")
 def get_patient(patient_id: int):
     db = get_db()
-    cursor = db.cursor(dictionary=True)
+    cursor = db.cursor()
 
-    cursor.execute("SELECT * FROM patients WHERE patient_id = %s", (patient_id,))
-    patient = cursor.fetchone()
+    cursor.execute("SELECT * FROM patients WHERE patient_id = ?", (patient_id,))
+    row = cursor.fetchone()
 
     cursor.close()
     db.close()
 
-    if not patient:
+    if not row:
         return {"message": "Patient not found"}
 
-    return patient
+    # sqlite3.Row -> dict
+    return dict(row)
 
 
 @router.post("/update")
@@ -29,8 +30,8 @@ def update_medical_details(data: DoctorUpdate):
 
     cursor.execute("""
         UPDATE patients
-        SET disease = %s, symptoms = %s, emergency = %s
-        WHERE patient_id = %s
+        SET disease = ?, symptoms = ?, emergency = ?
+        WHERE patient_id = ?
     """, (
         data.disease,
         data.symptoms,

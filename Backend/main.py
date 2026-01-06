@@ -8,7 +8,8 @@ app = FastAPI(title="Criticare Hospital System")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # React dev server
+    # Allow the common frontend dev servers (React 3000, Vite 5173)
+    allow_origins=["http://localhost:3000", "http://localhost:5173"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
